@@ -7,7 +7,6 @@ def open_brackets_helper(input_string):
         if s == '{':
             ct += 1
     if ct >= 2:
-        print("INPUT", input_string, ct)
         return input_string.split('{')
     return [input_string]
 
@@ -27,14 +26,12 @@ class ProgParser:
             else:
                 if curr != '':
                     mapping[curr].append(ct)
-        print(mapping)
         for m, v in mapping.items():
             new_value = []
             i = 0
             cob = open_brackets_helper(v)
             for c in cob:
                 while i < len(c):
-                    print("Current ---", c[i])
                     res = c[i][0].lower() + c[i][1:]
                     temp = str(res)
                     new_value.append(temp)
